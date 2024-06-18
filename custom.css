@@ -1,0 +1,364 @@
+:root {
+    --color-yellow: #EEED5C;
+}
+
+.dm-mono-light {
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.dm-mono-regular {
+    font-family: "DM Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dm-mono-medium {
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+}
+
+:root {
+    --header_ratio: 1669 / 339;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    color: #fff;
+    font-family: "DM Mono", sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    counter-reset: section;
+    overflow: hidden;
+    cursor: none;
+}
+.cursor {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 1;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
+    transform: translate(-50%, -50%);
+}
+.cursor-horizontal-line {
+    background: #8a8a8a;
+    position: relative;
+    height: 2px;
+    width: 0%;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-34deg) translate(-100%, -50%);
+    opacity: 0;
+    transition: width 0.35s ease-in-out, rotate 1s ease-in-out, translate 1.2s ease-in-out;
+}
+.cursor-vertical-line {
+    background: #8a8a8a;
+    position: relative;
+    width: 2px;
+    height: 0%;
+    top: 46%;
+    left: 50%;
+    opacity: 0;
+    transform: rotate(-34deg) translate(-100%, -50%);
+    transition: height 0.35s ease-in-out, rotate 1s ease-in-out, translate 0.5s ease-in-out;
+}
+.cursor-arrow-line-1, .cursor-arrow-line-2, .cursor-arrow-line-3 {
+    opacity: 0;
+}
+.cursor-arrow-line-1 {
+    opacity: 0;
+    position: relative;
+    top: 47%;
+    left: 50%;
+    height: 2px;
+    width: 0%;
+    background: #8a8a8a;
+}
+.cursor-arrow-line-2 {
+    opacity: 0;
+    position: relative;
+    top: 24%;
+    left: 42%;
+    height: 2px;
+    width: 0%;
+    background: #8a8a8a;
+}
+.cursor-arrow-line-3 {
+    opacity: 0;
+    position: relative;
+    top: 51%;
+    left: 42%;
+    height: 2px;
+    width: 0%;
+    background: #8a8a8a;
+}
+.cursor-arrow-line-1.show {
+    opacity: 1;
+    width: 50%;
+    background: #8a8a8a;
+    transition: width 0.35s ease-in-out, rotate 1s ease-in-out;
+}
+.cursor-arrow-line-2.show {
+    opacity: 1;
+    width: 35%;
+    background: #8a8a8a;
+    transform: rotate(45deg);
+    transition: width 0.35s ease-in-out, rotate 1s ease-in-out;
+}
+.cursor-arrow-line-3.show {
+    opacity: 1;
+    position: relative;
+    width: 35%;
+    background: #8a8a8a;
+    transform: rotate(-45deg);
+    transition: width 0.35s ease-in-out, rotate 1s ease-in-out;
+}
+#overlay {
+    position: fixed !important;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.overlay-line {
+    background-color: #c5c5c521;
+    position: fixed;
+    z-index: 10000;
+}
+.horizontal-line-1 {
+    height: 1px;
+    width: 100%;
+    top: 30%;
+}
+.horizontal-line-2 {
+    height: 1px;
+    width: 100%;
+    top: 70%;
+}
+.vertical-line-1 {
+    height: 100%;
+    width: 1px;
+    left: 20%;
+}
+.vertical-line-2 {
+    height: 100%;
+    width: 1px;
+    left: 65%;
+}
+main {
+    height: 100vh;
+    width: 100%;
+    /*
+    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(227 229 117 / 45%), rgb(166 73 237 / 35%), rgb(60 91 149 / 83%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
+    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(227 229 117 / 45%), rgb(133 89 197 / 64%), rgb(247 223 106 / 83%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
+    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
+    background-size: 180%, 100%, 40%;
+    */
+    background-blend-mode: color-dodge;
+    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(18, 18, 18, 0.5), rgb(180 147 249 / 35%), rgba(18, 18, 18, 0.9)), linear-gradient(187deg, rgb(208 187 253 / 90%) 0%, rgba(18, 18, 18, 0.9) 65%), url(./images/noise_lt.svg);
+    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
+    /*
+    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.94));
+    background-blend-mode: color-dodge;
+    */
+    overflow: hidden;
+}
+.header-logo {
+    width: 100%;
+    height: auto;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    justify-content: space-between;
+    padding: 0 32px;
+    margin-top: 32px;
+    position: relative;
+    overflow: hidden;
+}
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-self: flex-end;
+    width: 20%;
+    padding-bottom: 24px;
+}
+.star {
+    position: absolute;
+    top: 0;
+    width: 260px;
+    animation-name: spin;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spin {
+    0% {
+        transform: scale(1) translateY(0%) rotate(0deg);
+    }
+    25% {
+        transform: scale(0.75) translateY(10%) rotate(17deg);
+    }
+    50% {
+        transform: scale(1) translateY(20%) rotate(26deg);
+    }
+    75% {
+        transform: scale(0.85) translateY(10%) rotate(19deg);
+    }
+    100% {
+        transform: scale(1) translateY(0%) rotate(0deg);
+    }
+}
+
+@keyframes spin-small {
+    0% {
+        transform: scale(1) translateY(0%) rotate(0deg);
+    }
+    20% {
+        transform: scale(0.75) translateY(5%) rotate(-17deg);
+    }
+    40% {
+        transform: scale(1) translateY(10%) rotate(-26deg);
+    }
+    60% {
+        transform: scale(0.75) translateY(5%) rotate(-19deg);
+    }
+    80% {
+        transform: scale(0.85) translateY(10%) rotate(-11deg);
+    }
+    100% {
+        transform: scale(1) translateY(0%) rotate(0deg);
+    }
+}
+
+.star-small {
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    width: 80px;
+    animation-name: spin-small;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.work {
+    width: 45%;
+}
+.info {
+    width: 35%;
+}
+.header {
+    margin-bottom: 24px;
+    font-size: 20px;
+}
+.projects {
+    overflow-y: scroll;
+    --header_height: calc(100vw / 4.9);
+    --projects_height: calc(100vh - var(--header_height));
+    height: calc(var(--projects_height) - 90px);
+    padding-right: 16px;
+}
+.projects::-webkit-scrollbar {
+    width: 4px;
+}
+.projects::-webkit-scrollbar-track {
+    background: #fff;
+}
+.projects::-webkit-scrollbar-thumb {
+    background: #8a8a8a;
+}
+.project {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #d3d3d359;
+}
+.project .detail {
+    margin-top: 4px;
+    opacity: 0;
+    transform: translateY(-20px) rotate(-2deg);
+}
+.project .description {
+    margin-top: 16px;
+}
+.project-image {
+    position: fixed;
+    width: 33%;
+    right: -33%; 
+    bottom: 0;
+    transition: all 0.25s ease-in-out;
+}
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.social__link {
+    color: #fff;
+    text-decoration: none;
+    cursor: none;
+}
+.social__link:hover {
+    color: #c78ffc;
+    color: #e4e4e4;
+    color: var(--color-yellow);
+}
+.detail {
+    opacity: 0;
+    height: 0;
+}
+.project:hover {
+    color: #e4e4e4;
+    color: var(--color-yellow);
+}
+.project:hover > .project-image {
+    transform: translateX(-100%);
+}
+.project:hover h3 {
+    color: var(--color-yellow);
+}
+.project:hover .detail {
+    color: var(--color-yellow);
+    opacity: 1;
+    height: auto;
+    transform: translateY(0px) rotate(0deg);
+    transition: all 0.2s ease-in;
+}
+.project:hover .detail svg path {
+    fill: #dadada;
+    fill: var(--color-yellow);
+}
+h3 {
+    font-size: 16px;
+}
+h3 span {
+    font-weight: 400;
+}
+h3::before {
+    counter-increment: section;
+    content: "00" counter(section) " ";
+}
+.show {
+    visibility: visible;
+    opacity: 1;
+    transform: rotate(0deg) translate(-50%, -50%);
+}
+.cursor-horizontal-line.show {
+    width: 50%;
+}
+.cursor-vertical-line.show {
+    height: 50%;
+}
+.cursor-hover-state {
+    width: 40px;
+    height: 40px;
+}
