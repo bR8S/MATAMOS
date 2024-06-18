@@ -365,3 +365,80 @@ h3::before {
     width: 40px;
     height: 40px;
 }
+.footer-logo {
+    display: none;
+}
+@media screen and (max-width: 1280px){
+    .star {
+        width: 150px;
+    }
+    .star-small {
+        top: 30%;
+        left: 12%;
+        width: 60px;
+    }
+}
+@media screen and (max-width: 1024px){
+    html, body, main {
+        overflow: visible;
+        cursor: auto;
+        font-size: 14px;
+    }
+    main {
+        height: 100%;
+    }
+    .cursor {
+        display: none;
+    }
+    #overlay {
+        display: none;
+    }
+    .content {
+        gap: 20px;
+        flex-direction: column;
+        padding: 0 20px 32px;
+    }
+    .about, .work, .contact {
+        width: 100%;
+    }
+    h3 {
+        font-size: 14px;
+    }
+    .projects {
+        overflow: visible;
+        height: fit-content;
+        padding: 0;
+    }
+    .star {
+        right: 0;
+    }
+    .star-small {
+        top: 27%;
+        left: unset;
+        width: 60px;
+        right: 0;
+    }
+    .project-image {
+        display: none;
+    }
+    .project .description {
+        margin-top: 10px;
+    }
+    .header-logo {
+        position: relative;
+        width: 80%;
+        margin: 20px auto 0;
+        height: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .footer-logo {
+        display: block;
+        position: relative;
+        padding-bottom: 32px;
+        width: 190px;
+        height: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
