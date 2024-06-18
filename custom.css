@@ -41,7 +41,7 @@ html, body {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #dadada;
     z-index: 100;
     pointer-events: none;
     opacity: 1;
@@ -292,9 +292,12 @@ main {
 }
 .project-image {
     position: fixed;
-    width: 33%;
-    right: -33%; 
+    aspect-ratio: 520 / 300;
+    object-fit: cover;
+    width: 33vw;
+    right: -33%;
     bottom: 0;
+    object-position: left;
     transition: all 0.25s ease-in-out;
 }
 .socials {
