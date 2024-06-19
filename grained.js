@@ -9,5 +9,4 @@ var options = {
     "grainHeight": 1
 }
 
-grained('#overlay', options);
-console.log('THIS IS CALLED')
+grained('#overlay', options)
