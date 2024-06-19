@@ -321,6 +321,7 @@ main {
     right: -33%;
     bottom: 0;
     object-position: left;
+    background-size: cover;
     transition: all 0.25s ease-in-out;
 }
 .socials {
