@@ -524,4 +524,18 @@ h3 span {
         left: 50%;
         transform: translateX(-50%);
     }
+    .preview-content {
+        flex-direction: column;
+    }
+    .preview-services, .preview-client, .preview-outline {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px){ 
+    .details {
+        width: 92vw;
+    }
+    .preview {
+        padding: 20px;
+    }
 }
