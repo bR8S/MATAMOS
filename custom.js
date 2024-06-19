@@ -4,6 +4,7 @@ const previews = document.querySelectorAll('.preview')
 const socials = document.querySelectorAll('.social__link')
 const detailsOverlay = document.querySelector('.details-overlay')
 const details = document.querySelector('.details')
+const body = document.querySelector('body')
 
 const cursorXLine = document.querySelector('.cursor-horizontal-line')
 const cursorYLine = document.querySelector('.cursor-vertical-line')
@@ -74,12 +75,14 @@ function openDetails(event, index) {
     detailsOverlay.classList.add('active')
     details.classList.add('active')
     previews[index].classList.add('active')
+    body.classList.add('lock')
 }
 
 function closeDetails(event){
     detailsOverlay.classList.remove('active')
     details.classList.remove('active')
     previews.forEach(preview => preview.classList.remove('active'))
+    body.classList.remove('lock')
 }
 
 // handles updating custom cursor position

@@ -393,6 +393,7 @@ h3 span {
     display: none;
 }
 .details {
+    overflow-y: scroll;
     position: fixed;
     width: 75vw;
     height: 100vh;
@@ -450,6 +451,9 @@ h3 span {
 }
 .details.active {
     transform: translateX(-100%);
+}
+body.lock {
+    position: fixed;
 }
 @media screen and (max-width: 1280px){
     .star {
