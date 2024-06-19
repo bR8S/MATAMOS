@@ -477,7 +477,7 @@ body.lock {
     .cursor {
         display: none;
     }
-    #overlay {
+    .overlay-line {
         display: none;
     }
     .content {
