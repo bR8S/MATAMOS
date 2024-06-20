@@ -1,4 +1,5 @@
 const cursor = document.querySelector('.cursor')
+const cursorMb = document.querySelector('.cursor-mb')
 const projects = document.querySelectorAll('.project')
 const previews = document.querySelectorAll('.preview')
 const socials = document.querySelectorAll('.social__link')
@@ -76,13 +77,16 @@ function openDetails(event, index) {
     details.classList.add('active')
     previews[index].classList.add('active')
     body.classList.add('lock')
+    cursorMb.classList.add('active')
 }
 
 function closeDetails(event){
+    console.log('close details')
     detailsOverlay.classList.remove('active')
     details.classList.remove('active')
     previews.forEach(preview => preview.classList.remove('active'))
     body.classList.remove('lock')
+    cursorMb.classList.remove('active')
 }
 
 // handles updating custom cursor position
@@ -101,3 +105,5 @@ detailsOverlay.addEventListener('click', event => {
     closeDetails(event) 
     updateCursorClose(event)
 })
+
+cursorMb.addEventListener('click', event => closeDetails(event))
