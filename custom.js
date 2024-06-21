@@ -7,15 +7,15 @@ const detailsOverlay = document.querySelector('.details-overlay')
 const details = document.querySelector('.details')
 const body = document.querySelector('body')
 
-const cursorXLine = document.querySelector('.cursor-horizontal-line')
-const cursorYLine = document.querySelector('.cursor-vertical-line')
+const cursorXLine = cursor.querySelector('.cursor-horizontal-line')
+const cursorYLine = cursor.querySelector('.cursor-vertical-line')
 
-const cursorArrowLine1 = document.querySelector('.cursor-arrow-line-1')
-const cursorArrowLine2 = document.querySelector('.cursor-arrow-line-2')
-const cursorArrowLine3 = document.querySelector('.cursor-arrow-line-3')
+const cursorArrowLine1 = cursor.querySelector('.cursor-arrow-line-1')
+const cursorArrowLine2 = cursor.querySelector('.cursor-arrow-line-2')
+const cursorArrowLine3 = cursor.querySelector('.cursor-arrow-line-3')
 
-const cursorCloseLine1 = document.querySelector('.cursor-close-line-1')
-const cursorCloseLine2 = document.querySelector('.cursor-close-line-2')
+const cursorCloseLine1 = cursor.querySelector('.cursor-close-line-1')
+const cursorCloseLine2 = cursor.querySelector('.cursor-close-line-2')
 
 let cursorX, cursorY
 
@@ -55,7 +55,9 @@ function updateCursorSocialHover(event) {
 }
 
 function updateCursorClose(event) {
+    console.log('close')
     if(event.type == 'mousemove') {
+        console.log('mousemove')
         cursor.classList.add('cursor-hover-state')
         cursorCloseLine1.classList.add('show')
         cursorCloseLine2.classList.add('show')
