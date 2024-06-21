@@ -59,7 +59,7 @@ html, body {
     background: var(--color-dark-grey);
     opacity: 1;
     height: 2px;
-    width: 50%;
+    width: 0%;
     top: 65%;
     left: 42%;
     transform: rotate(45deg) translate(-50%, -50%);
@@ -71,7 +71,7 @@ html, body {
     left: 45%;
     opacity: 1;
     height: 2px;
-    width: 50%;
+    width: 0%;
     transform: rotate(-45deg) translate(-50%, -50%);
 }
 .cursor {
@@ -586,5 +586,9 @@ body.lock {
     .cursor-mb.active {
         visibility: visible;
         opacity: 1;
+    }
+    .cursor-mb.active .cursor-close-line-1, .cursor-mb.active .cursor-close-line-2 {
+        width: 50%;
+        transition: width 0.25s ease-in-out 0.35s;
     }
 }
