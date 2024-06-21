@@ -55,9 +55,7 @@ function updateCursorSocialHover(event) {
 }
 
 function updateCursorClose(event) {
-    console.log('close')
     if(event.type == 'mousemove') {
-        console.log('mousemove')
         cursor.classList.add('cursor-hover-state')
         cursorCloseLine1.classList.add('show')
         cursorCloseLine2.classList.add('show')
@@ -83,7 +81,6 @@ function openDetails(event, index) {
 }
 
 function closeDetails(event){
-    console.log('close details')
     detailsOverlay.classList.remove('active')
     details.classList.remove('active')
     previews.forEach(preview => preview.classList.remove('active'))
