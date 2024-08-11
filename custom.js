@@ -3,9 +3,9 @@ const cursorMb = document.querySelector('.cursor-mb')
 const projects = document.querySelectorAll('.project')
 const previews = document.querySelectorAll('.preview')
 const socials = document.querySelectorAll('.social__link')
+const projectLinks = document.querySelectorAll('.preview-link')
 const detailsOverlay = document.querySelector('.details-overlay')
 const details = document.querySelector('.details')
-const body = document.querySelector('body')
 
 const cursorXLine = cursor.querySelector('.cursor-horizontal-line')
 const cursorYLine = cursor.querySelector('.cursor-vertical-line')
@@ -76,7 +76,6 @@ function openDetails(event, index) {
     detailsOverlay.classList.add('active')
     details.classList.add('active')
     previews[index].classList.add('active')
-    body.classList.add('lock')
     cursorMb.classList.add('active')
 }
 
@@ -84,7 +83,6 @@ function closeDetails(event){
     detailsOverlay.classList.remove('active')
     details.classList.remove('active')
     previews.forEach(preview => preview.classList.remove('active'))
-    body.classList.remove('lock')
     cursorMb.classList.remove('active')
 }
 
@@ -97,6 +95,9 @@ projects.forEach((project, index) => project.addEventListener('click', event => 
 
 socials.forEach(social => social.addEventListener('mousemove', event => updateCursorSocialHover(event)))
 socials.forEach(social => social.addEventListener('mouseleave', event => updateCursorSocialHover(event)))
+
+projectLinks.forEach(social => social.addEventListener('mousemove', event => updateCursorSocialHover(event)))
+projectLinks.forEach(social => social.addEventListener('mouseleave', event => updateCursorSocialHover(event)))
 
 detailsOverlay.addEventListener('mousemove', event => updateCursorClose(event))
 detailsOverlay.addEventListener('mouseleave', event => updateCursorClose(event))
