@@ -1,5 +1,6 @@
 const cursor = document.querySelector('.cursor')
 const cursorMb = document.querySelector('.cursor-mb')
+const cursorBg = document.querySelector('.bg-cursor')
 const projects = document.querySelectorAll('.project')
 const previews = document.querySelectorAll('.preview')
 const socials = document.querySelectorAll('.social__link')
@@ -17,13 +18,32 @@ const cursorArrowLine3 = cursor.querySelector('.cursor-arrow-line-3')
 const cursorCloseLine1 = cursor.querySelector('.cursor-close-line-1')
 const cursorCloseLine2 = cursor.querySelector('.cursor-close-line-2')
 
-let cursorX, cursorY
+let cursorX, cursorY, cursorBgX, cursorBgY, diffX, diffY, speed, prevCursorX, prevCursorY
+cursorBgX = 0
+cursorBgY = 0
+prevCursorX = 0
+prevCursorY = 0
+speed = 0.005
 
 function updateCursorPosition(event) {
+    if(!cursorBg.classList.contains('show')){
+        cursorBg.classList.add('show')
+    }
+    
     cursorX = event.clientX
     cursorY = event.clientY
+
+    diffX = cursorX - cursorBgX
+    diffY = cursorY - cursorBgY
+
+    cursorBgX += diffX * speed
+    cursorBgY += diffY * speed
+
     cursor.style.left = cursorX + "px"
     cursor.style.top = cursorY + "px"
+    
+    cursorBg.style.left = cursorBgX + "px"
+    cursorBg.style.top = cursorBgY + "px"
 }
 
 function updateCursorHover(event) {
@@ -88,6 +108,17 @@ function closeDetails(event){
 
 // handles updating custom cursor position
 window.addEventListener('mousemove', event => updateCursorPosition(event))
+
+let timeoutId;
+const delay = 100; // Delay in milliseconds
+
+window.addEventListener('mousemove', (event) => {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    cursorBg.classList.remove('show')
+    console.log('Mouse stopped at:', event.clientX, event.clientY);
+  }, delay);
+});
 
 projects.forEach(project => project.addEventListener('mousemove', event => updateCursorHover(event)))
 projects.forEach(project => project.addEventListener('mouseleave', event => updateCursorHover(event)))

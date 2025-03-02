@@ -231,8 +231,10 @@ main {
     overflow: hidden;
 }
 .header-logo {
+    position: relative;
     width: 100%;
     height: auto;
+    z-index: 100;
 }
 .content {
     display: flex;
@@ -627,4 +629,26 @@ body.lock {
         width: 50%;
         transition: width 0.25s ease-in-out 0.35s;
     }
+}
+
+.bg-cursor {
+    display: block;
+    position: absolute;
+    width: 30vw;
+    height: 30vh;
+    background: radial-gradient(rgba(255, 198, 92, 0.877), rgba(255, 198, 92, 0.568), transparent);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: hard-light;
+    filter: blur(60px);
+    opacity: 0;
+    visibility: visible;
+    pointer-events: none;
+    transition: opacity 4s ease-out;
+}
+
+.bg-cursor.show {
+    opacity: 1;
 }
