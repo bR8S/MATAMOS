@@ -232,7 +232,9 @@ main {
 }
 .header-logo {
     position: relative;
-    width: 100%;
+    width: calc(100% - 40px);
+    left: 20px;
+    margin: 0 auto;
     height: auto;
     z-index: 100;
 }
@@ -242,7 +244,7 @@ main {
     gap: 64px;
     justify-content: space-between;
     padding: 0 32px;
-    margin-top: 32px;
+    margin-top: 48px;
     position: relative;
     overflow: hidden;
 }
@@ -324,7 +326,7 @@ main {
 }
 .projects {
     overflow-y: scroll;
-    --header_height: calc(100vw / 4.9);
+    --header_height: calc(100vw / 9.3);
     --projects_height: calc(100vh - var(--header_height));
     height: calc(var(--projects_height) - 90px);
     padding-right: 16px;
