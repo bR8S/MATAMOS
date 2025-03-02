@@ -638,8 +638,6 @@ body.lock {
     height: 30vh;
     background: radial-gradient(rgba(255, 198, 92, 0.877), rgba(255, 198, 92, 0.568), transparent);
     border-radius: 50%;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
     mix-blend-mode: hard-light;
     filter: blur(60px);
