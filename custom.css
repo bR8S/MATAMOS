@@ -690,7 +690,7 @@ body.lock {
         display: block;
         position: relative;
         padding-bottom: 32px;
-        width: 250px;
+        width: 220px;
         height: auto;
         left: 50%;
         transform: translateX(-50%);
