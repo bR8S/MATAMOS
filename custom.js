@@ -93,17 +93,116 @@ function updateCursorClose(event) {
 }
 
 function openDetails(event, index) {
+    const previewImageOverlay = previews[index].querySelector('.preview-image__overlay')
+
+    const previewServices = previews[index].querySelector('.preview-services')
+    const previewOutline = previews[index].querySelector('.preview-outline')
+    const previewClient = previews[index].querySelector('.preview-client')
+
+    const previewServicesHeader = previews[index].querySelector('.preview-services .preview-header')
+    const previewOutlineHeader = previews[index].querySelector('.preview-outline .preview-header')
+    const previewClientHeader = previews[index].querySelector('.preview-client .preview-header')
+
+    const previewServicesParagraph = previews[index].querySelector('.preview-services .preview-paragraph')
+    const previewOutlineParagraph = previews[index].querySelector('.preview-outline .preview-paragraph')
+    const previewClientParagraph = previews[index].querySelector('.preview-client .preview-paragraph')
+
+    const previewText = previews[index].querySelector('.preview-image__text')
+    const previewLink = previews[index].querySelector('.preview-link')
+
+
     detailsOverlay.classList.add('active')
     details.classList.add('active')
     previews[index].classList.add('active')
     cursorMb.classList.add('active')
+
+    previewImageOverlay.offsetWidth // Forces reflow
+    previewImageOverlay.classList.add('active')
+
+    previewServices.classList.add('active')
+    previewOutline.classList.add('active')
+    previewClient.classList.add('active')
+
+    previewServicesHeader.classList.add('active')
+    previewOutlineHeader.classList.add('active')
+    previewClientHeader.classList.add('active')
+
+    previewServicesParagraph.classList.add('active')
+    previewOutlineParagraph.classList.add('active')
+    previewClientParagraph.classList.add('active')
+
+    previewLink?.classList.add('active')
+    previewText.classList.add('active')
 }
 
 function closeDetails(event){
+    const previewImageOverlay = document.querySelectorAll('.preview-image__overlay')
+    const previewServices = document.querySelectorAll('.preview-services')
+    const previewServicesHeader = document.querySelectorAll('.preview-services .preview-header')
+    const previewServicesParagraph = document.querySelectorAll('.preview-services .preview-paragraph')
+    const previewOutline = document.querySelectorAll('.preview-outline')
+    const previewOutlineHeader = document.querySelectorAll('.preview-outline .preview-header')
+    const previewOutlineParagraph = document.querySelectorAll('.preview-outline .preview-paragraph')
+    const previewClient = document.querySelectorAll('.preview-client')
+    const previewClientHeader = document.querySelectorAll('.preview-client .preview-header')
+    const previewClientParagraph = document.querySelectorAll('.preview-client .preview-paragraph')
+    const previewLink = document.querySelectorAll('.preview-link')
+    const previewText = document.querySelectorAll('.preview-image__text')
+    
     detailsOverlay.classList.remove('active')
     details.classList.remove('active')
     previews.forEach(preview => preview.classList.remove('active'))
     cursorMb.classList.remove('active')
+
+    previewImageOverlay.forEach(overlay => {
+        if(overlay.classList.contains('active')){
+            overlay.classList.remove('active')
+        }
+    })
+
+    previewServices.forEach(service => {
+        service.classList.remove('active')
+    })
+
+    previewOutline.forEach(outline => {
+        outline.classList.remove('active')
+    })
+
+    previewClient.forEach(client => {
+        client.classList.remove('active')
+    })
+
+    previewServicesHeader.forEach(header => {
+        header.classList.remove('active')
+    })
+
+    previewOutlineHeader.forEach(header => {
+        header.classList.remove('active')
+    })
+
+    previewClientHeader.forEach(header => {
+        header.classList.remove('active')
+    })
+
+    previewServicesParagraph.forEach(paragraph => {
+        paragraph.classList.remove('active')
+    })
+
+    previewOutlineParagraph.forEach(paragraph => {
+        paragraph.classList.remove('active')
+    })
+
+    previewClientParagraph.forEach(paragraph => {
+        paragraph.classList.remove('active')
+    })
+
+    previewLink.forEach(link => {
+        link.classList.remove('active')
+    })
+
+    previewText.forEach(text => {
+        text.classList.remove('active')
+    })
 }
 
 // handles updating custom cursor position

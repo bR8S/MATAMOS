@@ -447,7 +447,7 @@ h3 span {
     top: 0;
     z-index: 10000;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    transition: transform 0.35s ease-in-out;
+    transition: transform 0.5s cubic-bezier(1, 0, 0.2, 1);
 }
 .preview {
     display: none;
@@ -457,6 +457,10 @@ h3 span {
 .preview.active {
     display: block;
 }
+.preview-image-wrapper {
+    overflow: hidden;
+    position: relative;
+}
 .preview-image {
     position: relative;
     width: 100%;
@@ -464,6 +468,19 @@ h3 span {
     aspect-ratio: 2;
     background-size: contain;
     background-repeat: no-repeat;
+}
+.preview-image__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: translate(0%, 0%);
+    transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1) 0.7s;
+    background-color: #000;
+}
+.preview-image__overlay.active {
+    transform: translate(0%, 110%);
 }
 .preview-content {
     margin-top: 24px;
@@ -487,6 +504,7 @@ h3 span {
 .preview-link-mobile {
     display: none;
 }
+
 .preview-services {
     width: 20%;
 }
@@ -495,6 +513,91 @@ h3 span {
 }
 .preview-client {
     width: 50%;
+}
+
+.preview-link {
+    transform: translate(0%, -20px);
+    opacity: 0;
+    transition: all 0.5s ease-in-out 0.8s;
+}
+
+.preview-image__text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 500;
+    font-family: "DM Mono", sans-serif;
+    opacity: 0;
+    transform: translate(0, 60px);
+    transition: all 0.35s ease-in-out 0.5s;
+}
+.preview-image__text.active {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.preview-services .preview-header {
+    opacity: 0;
+    transform: translate(0%, -10px);
+    transition: all 0.35s ease-in-out 0.8s;
+}
+.preview-outline .preview-header {
+    opacity: 0;
+    transform: translate(0%, -10px);
+    transition: all 0.35s ease-in-out 0.9s;
+}
+.preview-client .preview-header {
+    opacity: 0;
+    transform: translate(0%, -10px);
+    transition: all 0.35s ease-in-out 1s;
+}
+
+.preview-services .preview-paragraph {
+    opacity: 0;
+    transform: translate(0%, -10px);
+    transition: all 0.35s ease-in-out 0.8s;
+}
+.preview-outline .preview-paragraph {
+    opacity: 0;
+    transform: translate(0%, -10px);
+    transition: all 0.35s ease-in-out 0.9s;
+}
+.preview-client .preview-paragraph {
+    opacity: 0;
+    transform: translate(0%, -10px);
+    transition: all 0.35s ease-in-out 1s;
+}
+
+.preview-services .preview-header.active {
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+.preview-outline .preview-header.active {
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+.preview-client .preview-header.active {
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+
+.preview-services .preview-paragraph.active {
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+.preview-outline .preview-paragraph.active {
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+.preview-client .preview-paragraph.active {
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+.preview-link.active {
+    opacity: 1;
+    transform: translate(0%, 0%);
 }
 .details-overlay {
     position: fixed;
