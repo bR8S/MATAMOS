@@ -215,7 +215,6 @@ window.addEventListener('mousemove', (event) => {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
     cursorBg.classList.remove('show')
-    console.log('Mouse stopped at:', event.clientX, event.clientY);
   }, delay);
 });
 
