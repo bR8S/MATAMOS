@@ -558,6 +558,8 @@ h3 span {
     opacity: 0;
     transform: translate(0%, -10px);
     transition: all 0.35s ease-in-out 0.8s;
+    display: flex;
+    flex-direction: column;
 }
 .preview-outline .preview-paragraph {
     opacity: 0;
