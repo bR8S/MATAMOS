@@ -719,6 +719,12 @@ body.lock {
     }
 }
 @media screen and (max-width: 768px){ 
+    .preview-image__text {
+        bottom: 4px;
+        left: 4px;
+        font-size: 24px;
+        line-height: 24px;
+    }
     .details {
         width: 92vw;
     }
