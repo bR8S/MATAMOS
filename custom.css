@@ -761,5 +761,5 @@ body.lock {
 }
 
 .bg-cursor.show {
-    opacity: 1;
+    opacity: 0.4;
 }
