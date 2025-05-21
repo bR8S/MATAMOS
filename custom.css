@@ -220,14 +220,14 @@ main {
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(227 229 117 / 45%), rgb(133 89 197 / 64%), rgb(247 223 106 / 83%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
     background-size: 180%, 100%, 40%;
-    */
+ 
     background-blend-mode: color-dodge;
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(18, 18, 18, 0.5), rgb(180 147 249 / 35%), rgba(18, 18, 18, 0.9)), linear-gradient(187deg, rgb(208 187 253 / 90%) 0%, rgba(18, 18, 18, 0.9) 65%), url(./images/noise_lt.svg);
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
-    /*
-    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.94));
-    background-blend-mode: color-dodge;
     */
+    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.94));
+    background-blend-mode: color-dodge;
+ 
     overflow: hidden;
 }
 .header-logo {
@@ -259,7 +259,7 @@ main {
 .star {
     position: absolute;
     top: 0;
-    width: 260px;
+    width: 220px;
     animation-name: spin;
     animation-duration: 20s;
     animation-iteration-count: infinite;
@@ -745,7 +745,7 @@ body.lock {
 }
 
 .bg-cursor {
-    display: block;
+    display: none;
     position: absolute;
     width: 30vw;
     height: 30vh;
