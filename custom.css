@@ -472,12 +472,12 @@ h3 span {
 .preview-image__overlay {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -2px;
     height: 100%;
-    width: 100%;
+    width: 110%;
     transform: translate(0%, 0%);
     transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1) 0.7s;
-    background-color: #000;
+    background-color: #1a1a1a;
 }
 .preview-image__overlay.active {
     transform: translate(0%, 110%);
