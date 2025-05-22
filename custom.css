@@ -697,12 +697,14 @@ body.lock {
     }
     .star {
         right: 0;
+        display: none;
     }
     .star-small {
         top: 27%;
         left: unset;
         width: 60px;
         right: 0;
+        display: none;
     }
     .project-image {
         display: none;
@@ -722,7 +724,7 @@ body.lock {
         display: block;
         position: relative;
         padding-bottom: 32px;
-        width: 220px;
+        width: 280px;
         height: auto;
         left: 50%;
         transform: translateX(-50%);
@@ -776,6 +778,15 @@ body.lock {
     .cursor-mb.active .cursor-close-line-1, .cursor-mb.active .cursor-close-line-2 {
         width: 50%;
         transition: width 0.25s ease-in-out 0.35s;
+    }
+
+    .star {
+        right: 32px;
+        width: 80px;
+        display: block;
+    }
+    .star-small {
+        display: none;
     }
 }
 
