@@ -98,14 +98,17 @@ function openDetails(event, index) {
     const previewServices = previews[index].querySelector('.preview-services')
     const previewOutline = previews[index].querySelector('.preview-outline')
     const previewClient = previews[index].querySelector('.preview-client')
+    const previewDescription = previews[index].querySelector('.preview-description')
 
     const previewServicesHeader = previews[index].querySelector('.preview-services .preview-header')
     const previewOutlineHeader = previews[index].querySelector('.preview-outline .preview-header')
     const previewClientHeader = previews[index].querySelector('.preview-client .preview-header')
+    const previewDescriptionHeader = previews[index].querySelector('.preview-description .preview-header')
 
     const previewServicesParagraph = previews[index].querySelector('.preview-services .preview-paragraph')
     const previewOutlineParagraph = previews[index].querySelector('.preview-outline .preview-paragraph')
     const previewClientParagraph = previews[index].querySelector('.preview-client .preview-paragraph')
+    const previewDescriptionContent = previews[index].querySelector('.preview-description .preview-description-content')
 
     const previewText = previews[index].querySelector('.preview-image__text')
     const previewLink = previews[index].querySelector('.preview-link')
@@ -122,14 +125,17 @@ function openDetails(event, index) {
     previewServices.classList.add('active')
     previewOutline.classList.add('active')
     previewClient.classList.add('active')
+    previewDescription?.classList.add('active')
 
     previewServicesHeader.classList.add('active')
     previewOutlineHeader.classList.add('active')
     previewClientHeader.classList.add('active')
+    previewDescriptionHeader?.classList.add('active')
 
     previewServicesParagraph.classList.add('active')
     previewOutlineParagraph.classList.add('active')
     previewClientParagraph.classList.add('active')
+    previewDescriptionContent?.classList.add('active')
 
     previewLink?.classList.add('active')
     previewText.classList.add('active')
@@ -146,6 +152,8 @@ function closeDetails(event){
     const previewClient = document.querySelectorAll('.preview-client')
     const previewClientHeader = document.querySelectorAll('.preview-client .preview-header')
     const previewClientParagraph = document.querySelectorAll('.preview-client .preview-paragraph')
+    const previewDescriptionHeader = document.querySelectorAll('.preview-description .preview-header')
+    const previewDescriptionContent = document.querySelectorAll('.preview-description .preview-description-content')
     const previewLink = document.querySelectorAll('.preview-link')
     const previewText = document.querySelectorAll('.preview-image__text')
     
@@ -180,6 +188,10 @@ function closeDetails(event){
         header.classList.remove('active')
     })
 
+    previewDescriptionHeader.forEach(header => {
+        header.classList.remove('active')
+    })
+
     previewClientHeader.forEach(header => {
         header.classList.remove('active')
     })
@@ -194,6 +206,14 @@ function closeDetails(event){
 
     previewClientParagraph.forEach(paragraph => {
         paragraph.classList.remove('active')
+    })
+
+    previewDescriptionHeader.forEach(header => {
+        header.classList.remove('active')
+    })
+
+    previewDescriptionContent.forEach(content => {
+        content.classList.remove('active')
     })
 
     previewLink.forEach(link => {
