@@ -240,7 +240,7 @@ window.addEventListener('mousemove', (event) => {
 
 projects.forEach(project => project.addEventListener('mousemove', event => updateCursorHover(event)))
 projects.forEach(project => project.addEventListener('mouseleave', event => updateCursorHover(event)))
-projects.forEach((project, index) => project.addEventListener('click', event => openDetails(event, index)))
+//projects.forEach((project, index) => project.addEventListener('click', event => openDetails(event, index)))
 
 socials.forEach(social => social.addEventListener('mousemove', event => updateCursorSocialHover(event)))
 socials.forEach(social => social.addEventListener('mouseleave', event => updateCursorSocialHover(event)))

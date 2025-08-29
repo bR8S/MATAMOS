@@ -331,6 +331,8 @@ main {
     --projects_height: calc(100vh - var(--header_height));
     height: calc(var(--projects_height) - 90px);
     padding-right: 16px;
+    display: flex;
+    flex-direction: column;
 }
 .projects::-webkit-scrollbar {
     width: 4px;
@@ -345,6 +347,8 @@ main {
     margin-bottom: 24px;
     padding-bottom: 16px;
     border-bottom: 1px solid #d3d3d359;
+    text-decoration: none;
+    color: #fff;
 }
 .project .detail {
     margin-top: 4px;
