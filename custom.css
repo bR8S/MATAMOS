@@ -329,7 +329,7 @@ main {
     overflow-y: scroll;
     --header_height: calc(100vw / 9.3);
     --projects_height: calc(100vh - var(--header_height));
-    height: calc(var(--projects_height) - 90px);
+    height: calc(var(--projects_height) - 125px);
     padding-right: 16px;
     display: flex;
     flex-direction: column;
@@ -394,7 +394,7 @@ main {
     color: var(--color-yellow);
 }
 .project:hover > .project-image {
-    transform: translateX(-100%);
+    transform: translateX(-100.1%);
 }
 .project:hover h3 {
     color: var(--color-yellow);
