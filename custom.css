@@ -252,7 +252,7 @@ main {
 .about {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
     align-self: flex-end;
     width: 20%;
     padding-bottom: 24px;
@@ -357,6 +357,7 @@ main {
 }
 .project .description {
     margin-top: 16px;
+    line-height: 130%;
 }
 .project-image {
     position: fixed;
@@ -372,7 +373,7 @@ main {
 .socials {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 10px;
 }
 .social__link {
     color: #fff;
