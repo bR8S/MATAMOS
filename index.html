@@ -58,7 +58,7 @@
         <div class="content">
             <div class="about">
                 <p>Guillermo Mata-Ramirez</p>
-                <p>Web Developer</p>
+                <p>Web/Shopify Developer</p>
                 <p>San Diego, CA</p>
                 <p>© MATAMOS</p>
                 <img class="star" src="./images/matamos-star.png">
@@ -79,22 +79,25 @@
                     display: none;
                 }
                 .project-selector {
-                    padding: 12px 32px;
-                    border-top: 1px solid #d3d3d359;
-                    border-right: 1px solid #d3d3d359;
+                    padding: 10px 24px 10px 24px;
+                    border: 1px solid #d3d3d359;
                     transition: all 0.15s ease-in-out;
                     background-color: transparent;
                 }
                 .project-selector-work {
                     border-left: 1px solid #d3d3d359;
                 }
-                .project-selector.active {
-                    background-color: #d3d3d325;
-                    filter: blur(4);
-                }
                 .project-selector:hover {
                     background-color: #d3d3d362;
                 }
+                .project-selector.active {
+                    background-color: #d3d3d325;
+                    filter: blur(4);
+                    background-color: #EEED5C25 !important;
+                    color: var(--color-yellow);
+                    filter: blur(4);
+                    border: 1px solid #EEED5C;
+                }  
                 .projects.active {
                     display: flex;
                 }
@@ -102,10 +105,10 @@
             <div class="work">
                 <div class="project-selectors">
                     <h2 class="project-selector project-selector-work header active">WORK</h2>
-                    <h2 class="project-selector header">PROJECTS</h2>
+                    <h2 class="project-selector header">PERSONAL</h2>
                 </div>
                 <div class="work-projects projects active">
-                    <a href="https://soylent.com/" class="project">
+                    <div class="project">
                         <h3 class="project-title">Soylent <span> - Online store development</span></h3>
                         <div class="detail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
@@ -115,8 +118,9 @@
                         </div>
                         <p class="description">Developed a fully customized Shopify experience for Soylent, implementing interactive homepage animations, a custom navigation system to support new product launches, and a rewards program integration. Enhancements improved user engagement and streamlined the customer journey across desktop and mobile.</p>
                         <div class="project-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url('./images/soylent-screenshot.png');"></div>
-                    </a>
-                     <a href="https://gamersupps.com/" class="project">
+                    </div>
+
+                    <div class="project">
                         <h3 class="project-title">Gamer Supps <span> - Online store development</span></h3>
                         <div class="detail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
@@ -126,8 +130,9 @@
                         </div>
                         <p class="description">Implemented store-wide logic to enforce hard caps on product sales by preventing excess items from being added to the cart and validating limits with Shopify Scripts. Built a region-aware countdown timer for product launches to ensure accurate display across all time zones. Developed a ‘gift with purchase’ system that rewarded customers at specific cart value thresholds, and extended functionality into Tapcart for the brand’s mobile app.</p>
                         <div class="project-image" style="background-image: url('./images/gamersupps-screenshot.png');"></div>
-                    </a>
-                    <a href="https://macyswineshop.com/" class="project">
+                    </div>
+
+                    <div class="project">
                         <h3 class="project-title">Macy's Wine Shop <span> - Online store development</span></h3>
                         <div class="detail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
@@ -137,8 +142,9 @@
                         </div>
                         <p class="description">Contributed to the development of Macy's Shopify homepage, implementing custom animations, responsive layouts, and dynamic promotional banners to support seasonal campaigns and improve the overall shopping experience.</p>
                         <div class="project-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url('./images/macyswineshop-screenshot.png');"></div>
-                    </a>
-                    <a href="https://www.fitvinewine.com/" class="project">
+                    </div>
+
+                    <div class="project">
                         <h3 class="project-title">Fitvine Wines <span> - Online store development</span></h3>
                         <div class="detail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
@@ -148,8 +154,9 @@
                         </div>
                         <p class="description">Spearheaded development of the website, including the nevigation system, homepage, and product pages. Implemented on-load animations and interactive homepage elements, enhancing user engagement and creating a dynamic browsing experience.</p>
                         <div class="project-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url('./images/fitvine-screenshot.png');"></div>
-                    </a>
-                    <a href="https://pointreyescheese.com/" class="project">
+                    </div>
+
+                    <div class="project">
                         <h3 class="project-title">Point Reyes Cheese Company <span> - Online store development</span></h3>
                         <div class="detail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
@@ -159,9 +166,9 @@
                         </div>
                         <p class="description">Built out entire Shopify store end-to-end, crafting seamless navigation, fluid layouts, and interactive elements. Focused on creating an immersive and polished experience that guides users naturally through the content while higlighting key features.</p>
                         <div class="project-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url('./images/ptreyes-screenshot.png');"></div>
-                    </a>
+                    </div>
                     
-                    <a href="https://yesyoucan.com/" class="project">
+                    <div class="project">
                         <h3 class="project-title">YesYouCan! <span> - Online store development</span></h3>
                         <div class="detail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
@@ -171,9 +178,7 @@
                         </div>
                         <p class="description">Developed a custom Shopify product page variant selection flow using Liquid. Built a deeply nested option structure to handle unique sub-variants for each selection, incorporating both subscription and one-time purchase options.</p>
                         <div class="project-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url('./images/yesyoucan-screenshot.png');"></div>
-                    </a>
-
-                    <!---->
+                    </div>
                 </div>
                 <div class="personal-projects projects">
                     <a href="https://chromestars.live/" class="project">
@@ -209,9 +214,7 @@
                         <p class="description">Designed and developed a user-friendly, interactive website for a community-driven crypto currency project, emphasizing luxury, humor, and value through intuitive design and engaging user experience.</p>
                         <div class="project-image" style="background-image: url('./images/worthwhile-screenshot.png');"></div>
                     </a>
-                    <!---->
                 </div>
-                <!--
                 <aside class="details">
                     <div class="preview">
                         <div class="preview-image-wrapper">
@@ -239,28 +242,33 @@
                             </div>
                         </div>
                         <a href="https://soylent.com/" class="preview-link">VISIT SITE</a>
-                        <div class="preview-description">
-                            <h3 class="preview-header">DEVELOPMENT</h3>
-                            <div class="preview-description-content">
-                                <img class="preview-image" src="./images/Soylent-Nav.gif">
-                                <p class="preview-paragraph">Navigation was upgraded to accommodate new product line launches and ongoing content updates. Created dynamic fields for all content pertaining to the navigation, allowing client to update content as they pleased. Additionally, added fields to control delay and length of panning animations for product showcase, allowing client to furtherly fine tune the animations as they pleased. All animations were handled using CSS hover states and CSS key animations.</p>
-                                <video class="preview-video" autoplay muted loop>
-                                    <source src="./images/Soylent-Homepage-Comp.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video> 
-                                <p class="preview-paragraph">Carousel built out using SplideJS Javascript library. All content in carousel built to be dynamically updated by client. Added fields to control width, length, and x/y positions of the stems connecting the nutrients to their descriptions, as well as fields to control the rotation of the curved border aroung the nutrients and x/y positioning of the nutrients themselves.</p>
-                                <video class="preview-video" autoplay muted loop>
-                                    <source src="./images/Soylent-Motion-Comp.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>    
-                                <p class="preview-paragraph">Animation built out using vanilla Javacript. Mutation obeserver used to trigger the animation as soon as the section scrolls into the view port. Animations handled using CSS classes triggered by Javascript. Added fields to control all content in the animation, ranging from delay/duration of animations to the color of the vertical falling bars.</p>
-                                <video class="preview-video" autoplay muted loop>
-                                    <source src="./images/Soylent-Rewards-Comp.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>                             
-                                <p class="preview-paragraph">Implemented a Soylent Rewards Program, integrating the LoyaltyLion API to retrieve customer specific data, such as rewards, rewards progress, purchase history, etc. </p>
+                    </div>
+                    <div class="preview">
+                        <div class="preview-image-wrapper">
+                            <div class="preview-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35)), url('./images/gamersupps-screenshot.png');"></div>
+                            <div class="preview-image__overlay"></div>
+                            <div class="preview-image__text">GAMERSUPPS</div>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-services">
+                                <h3 class="preview-header">SERVICES</h3>
+                                <p class="preview-paragraph">
+                                    <span>Javascript</span>
+                                    <span>Shopify Custom Theme</span>
+                                    <span>SplideJS</span>
+                                </p>
+                                <a href="https://gamersupps.com/" class="preview-link-mobile">VISIT SITE</a>
+                            </div>
+                            <div class="preview-outline">
+                                <h3 class="preview-header">OUTLINE</h3>
+                                <p class="preview-paragraph">Handled building out existing navigation, blog page, and several homepage sections. Responsible for building out pre-existing product page and subscription lp sections.</p>
+                            </div>
+                            <div class="preview-client">
+                                <h3 class="preview-header">CLIENT</h3>
+                                <p class="preview-paragraph">Soylent is a brand that provides meal replacement products designed to offer balanced nutrition in a convenient form. It's popular among individuals looking for quick and efficient ways to meet their dietary needs without traditional meal preparation.</p>
                             </div>
                         </div>
+                        <a href="https://soylent.com/" class="preview-link">VISIT SITE</a>
                     </div>
                     <div class="preview">
                         <div class="preview-image-wrapper">
@@ -345,56 +353,7 @@
                         </div>
                         <a href="https://pointreyescheese.com/" class="preview-link">VISIT SITE</a>
                     </div>
-                    <div class="preview">
-                        <div class="preview-image-wrapper">
-                            <div class="preview-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35)), url('./images/cacti-screencast.gif');"></div>
-                            <div class="preview-image__overlay"></div>
-                            <div class="preview-image__text">CACTI</div>
-                        </div>
-                        <div class="preview-content">
-                            <div class="preview-services">
-                                <h3 class="preview-header">SERVICES</h3>
-                                <p class="preview-paragraph">
-                                    <span>Javascript</span>
-                                    <span>ThreeJS</span>
-                                </p>
-                            </div>
-                            <div class="preview-outline">
-                                <h3 class="preview-header">OUTLINE</h3>
-                                <p class="preview-paragraph">Handled building out <span style="text-decoration: underline;">replica</span> of pre-existing Cacti Drinks landing page.</p>
-                            </div>
-                            <div class="preview-client">
-                                <h3 class="preview-header">CLIENT</h3>
-                                <p class="preview-paragraph">Cacti is a beverage brand created in collaboration with rapper Travis Scott, offering a range of alcoholic seltzers infused with natural flavors. It's known for its bold flavors and high carbonation, catering to consumers looking for a refreshing and flavorful alternative in the hard seltzer market.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="preview">
-                        <div class="preview-image-wrapper">
-                            <div class="preview-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35)), url('./images/worthwhile-screencast.gif');"></div>
-                            <div class="preview-image__overlay"></div>
-                            <div class="preview-image__text">WORTHWHILE</div>
-                        </div>
-                        <div class="preview-content">
-                            <div class="preview-services">
-                                <h3 class="preview-header">SERVICES</h3>
-                                <p class="preview-paragraph">
-                                    <span>Javascript</span>
-                                    <span>GSAP</span>
-                                </p>
-                            </div>
-                            <div class="preview-outline">
-                                <h3 class="preview-header">OUTLINE</h3>
-                                <p class="preview-paragraph">Led the end-to-end design and development of the landing page, ensuring a seamless user experience and optimized performance.</p>
-                            </div>
-                            <div class="preview-client">
-                                <h3 class="preview-header">CLIENT</h3>
-                                <p class="preview-paragraph">Worthwhile is an innovative crypto project that fuses luxury, humor, and community-driven crypto culture. Positioned as more than just a digital asset, it aims to create a lifestyle brand with a strong emphasis on exclusivity and engagement.</p>
-                            </div>
-                        </div>
-                    </div>
                 </aside>
-                -->
             </div>
             <div class="info">
                 <h2 class="header">CONTACT</h2>
