@@ -186,6 +186,7 @@ html, body {
     height: 100vh;
     top: 0;
     left: 0;
+    opacity: 0.3;
 }
 .overlay-line {
     background-color: #c5c5c521;
@@ -215,18 +216,13 @@ html, body {
 main {
     height: 100vh;
     width: 100%;
-    /*
-    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(227 229 117 / 45%), rgb(166 73 237 / 35%), rgb(60 91 149 / 83%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
-    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(227 229 117 / 45%), rgb(133 89 197 / 64%), rgb(247 223 106 / 83%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
-    background-size: 180%, 100%, 40%;
- 
-    background-blend-mode: color-dodge;
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(18, 18, 18, 0.5), rgb(180 147 249 / 35%), rgba(18, 18, 18, 0.9)), linear-gradient(187deg, rgb(208 187 253 / 90%) 0%, rgba(18, 18, 18, 0.9) 65%), url(./images/noise_lt.svg);
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
     
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.94));
-    */
+
+    background-size: 180%, 100%, 40%;
     background-blend-mode: color-dodge;
     background-color: #1a1a1a;
     overflow: hidden;
@@ -265,6 +261,24 @@ main {
     animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+@keyframes star-rotate {
+    0% {
+        transform: scale(1) rotate(0deg)
+    }
+    25% {
+        transform: scale(1.05) rotate(23deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(40deg);
+    }
+    75% {
+        transform: scale(0.9) rotate(27deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg)
+    }
 }
 @keyframes spin {
     0% {
@@ -356,7 +370,18 @@ main {
     transform: translateY(-20px) rotate(-2deg);
 }
 .project .description {
-    margin-top: 16px;
+    margin-top: 12px;
+    font-size: 16px;
+    color: #e0e0e0c0;
+    line-height: 140%;
+    font-weight: 300;
+    position: relative;
+}
+.project-header {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    margin-inline: -4px;
 }
 .project-image {
     position: fixed;
@@ -381,13 +406,15 @@ main {
     width: fit-content;
 }
 .social__link:hover {
-    color: #c78ffc;
-    color: #e4e4e4;
     color: var(--color-yellow);
 }
 .detail {
     opacity: 0;
     height: 0;
+}
+.project-header svg {
+    width: 22px;
+    height: 20px;
 }
 .project:hover {
     color: #e4e4e4;
@@ -396,8 +423,9 @@ main {
 .project:hover > .project-image {
     transform: translateX(-100.1%);
 }
-.project:hover h3 {
+.project:hover h3, .project:hover .description {
     color: var(--color-yellow);
+    transition: color 0.2s ease-in-out;
 }
 .project:hover .detail {
     color: var(--color-yellow);
@@ -405,10 +433,27 @@ main {
     height: auto;
     transform: translateY(0px) rotate(0deg);
     transition: all 0.2s ease-in;
+    padding-inline: 4px;
 }
 .project:hover .detail svg path {
-    fill: #dadada;
     fill: var(--color-yellow);
+}
+.project:hover .project-header .cls-1 {
+    fill: var(--color-yellow);
+}
+.project:hover .project-title span {
+    color: var(--color-yellow);
+}
+.project-header svg {
+    transform: rotate(0deg);
+    width: 24px;
+    height: 22px;
+}
+.project-header svg {
+    animation-name: star-rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 h3 {
     font-size: 16px;
@@ -416,9 +461,14 @@ h3 {
 h3 span {
     font-weight: 400;
 }
+/*
 .project-title::before {
     counter-increment: section;
     content: "00" counter(section) " ";
+}
+*/
+.project-title span {
+    color: #e0e0e0c0;
 }
 .show {
     visibility: visible;
@@ -527,10 +577,10 @@ h3 span {
 
 .preview-image__text {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 48px;
-    line-height: 48px;
+    bottom: 0px;
+    left: 4px;
+    font-size: 64px;
+    line-height: 0.9;
     font-weight: 500;
     font-family: "DM Mono", sans-serif;
     opacity: 0;
@@ -657,6 +707,12 @@ body.lock {
     position: relative;
     width: 100%;
     height: auto;
+}
+.project .description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 @media screen and (max-width: 1280px){
     .star {
@@ -812,4 +868,32 @@ body.lock {
 
 .bg-cursor.show {
     opacity: 0.4;
+}
+
+.banner {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #d1d1d1;
+    color: #1a1a1a;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    padding: 4px 0;
+    width: 100%;
+}
+
+.scroll {
+  display: inline-flex;
+  animation: scroll-left 35s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
