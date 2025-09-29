@@ -498,12 +498,10 @@ h3 {
 h3 span {
     font-weight: 400;
 }
-/*
 .project-title::before {
     counter-increment: section;
-    content: "00" counter(section) " ";
+    content: "0" counter(section) " ";
 }
-*/
 .project-title span {
     color: #e0e0e0c0;
     font-size: 15px;
@@ -957,7 +955,19 @@ body.lock {
     transition: all 0.2s ease-in-out;
 }
 .client-logo.icon-soylent-full-color {
-    height: 48px;
+    height: 40px;
+}
+.client-logo.gamersupps-logo {
+    height: 40px;
+}
+.client-logo.macys-logo {
+    height: 35px;
+}
+.client-logo.ptreyes-logo {
+    height: 40px;
+}
+.client-logo.yesyoucan-logo {
+    height: 43px;
 }
 .client-logo path, .client-logo polygon {
     fill: #e0e0e0c0;
@@ -966,13 +976,12 @@ body.lock {
 .project:hover .client-logo {
     opacity: 1;
     top: 7px;
-    transform: rotate(4deg);
+    transform: rotate(3deg);
     right: 10px;
 }
 
 .project:hover .client-logo.icon-soylent-full-color  {
-    top: -3px;
-    transform: rotate(4deg);
+    top: 3px;
     right: 5px;
 }
 
