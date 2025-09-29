@@ -475,6 +475,9 @@ main {
 .banner .scroll .cls-1 {
     fill: #1f1f1f;
 }
+.project .project-header .cls-1 {
+    fill: #fff;
+}
 .project:hover .project-header .cls-1 {
     fill: var(--color-yellow);
 }
@@ -546,7 +549,9 @@ h3 span {
     z-index: 5;
 }
 .preview.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 .preview-image-wrapper {
     overflow: hidden;
@@ -574,7 +579,6 @@ h3 span {
     transform: translate(0%, 110%);
 }
 .preview-content {
-    margin-top: 24px;
     display: flex;
     flex-direction: row;
     gap: 32px;
@@ -599,11 +603,11 @@ h3 span {
 .preview-services {
     width: 20%;
 }
-.preview-outline {
-    width: 30%;
-}
 .preview-client {
-    width: 50%;
+    width: 40%;
+}
+.preview-outline {
+    width: 40%;
 }
 
 .preview-link {
@@ -655,6 +659,12 @@ h3 span {
 
 .preview-paragraph {
     color: #e0e0e0c0;
+}
+.preview-paragraph a {
+    color: #fff;
+}
+.preview-paragraph a:hover {
+    color: var(--color-yellow);
 }
 .preview-services .preview-paragraph {
     opacity: 0;
