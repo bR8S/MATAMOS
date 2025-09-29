@@ -655,6 +655,9 @@ h3 span {
     margin-top: 48px;
 }
 
+.preview-paragraph {
+    color: #e0e0e0c0;
+}
 .preview-services .preview-paragraph {
     opacity: 0;
     transform: translate(0%, -10px);
