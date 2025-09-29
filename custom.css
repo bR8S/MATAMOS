@@ -31,11 +31,12 @@
 html, body {
     color: #fff;
     font-family: "DM Mono", sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
     line-height: 1.2;
     counter-reset: section;
     overflow: hidden;
-    cursor: none;
+    cursor: none !important;
 }
 .cursor-mb {
     position: fixed;
@@ -251,7 +252,7 @@ main {
     gap: 6px;
     align-self: flex-end;
     width: 20%;
-    padding-bottom: 24px;
+    padding-bottom: 40px;
 }
 .star {
     position: absolute;
@@ -268,13 +269,30 @@ main {
         transform: scale(1) rotate(0deg)
     }
     25% {
-        transform: scale(1.05) rotate(23deg);
+        transform: scale(1.05) rotate(90deg);
     }
     50% {
-        transform: scale(1.1) rotate(40deg);
+        transform: scale(1.1) rotate(180deg);
     }
     75% {
-        transform: scale(0.9) rotate(27deg);
+        transform: scale(0.9) rotate(270deg);
+    }
+    100% {
+        transform: scale(1) rotate(360deg)
+    }
+}
+@keyframes star-rotate-2 {
+    0% {
+        transform: scale(1) rotate(0deg)
+    }
+    25% {
+        transform: scale(1.07) rotate(-20deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-33deg);
+    }
+    75% {
+        transform: scale(0.9) rotate(-23deg);
     }
     100% {
         transform: scale(1) rotate(0deg)
@@ -334,6 +352,7 @@ main {
 }
 .info {
     width: 35%;
+    position: relative;
 }
 .header {
     margin-bottom: 24px;
@@ -373,7 +392,7 @@ main {
     margin-top: 12px;
     font-size: 16px;
     color: #e0e0e0c0;
-    line-height: 140%;
+    line-height: 150%;
     font-weight: 300;
     position: relative;
 }
@@ -393,6 +412,7 @@ main {
     object-position: left;
     background-size: cover;
     transition: all 0.25s ease-in-out;
+    z-index: 1;
 }
 .socials {
     display: flex;
@@ -438,6 +458,21 @@ main {
 .project:hover .detail svg path {
     fill: var(--color-yellow);
 }
+.banner .scroll svg {
+    position: relative;
+    animation-name: star-rotate-2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.banner .scroll span {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.banner .scroll .cls-1 {
+    fill: #1f1f1f;
+}
 .project:hover .project-header .cls-1 {
     fill: var(--color-yellow);
 }
@@ -449,14 +484,14 @@ main {
     width: 24px;
     height: 22px;
 }
-.project-header svg {
+.project:hover .project-header svg {
     animation-name: star-rotate;
-    animation-duration: 5s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
 h3 {
-    font-size: 16px;
+    font-size: 18px;
 }
 h3 span {
     font-weight: 400;
@@ -469,6 +504,7 @@ h3 span {
 */
 .project-title span {
     color: #e0e0e0c0;
+    font-size: 16px;
 }
 .show {
     visibility: visible;
@@ -507,6 +543,7 @@ h3 span {
     display: none;
     position: relative;
     padding: 32px;
+    z-index: 5;
 }
 .preview.active {
     display: block;
@@ -875,18 +912,26 @@ body.lock {
     white-space: nowrap;
     background: #d1d1d1;
     color: #1a1a1a;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
     font-weight: bold;
     position: fixed;
     bottom: 0;
     padding: 4px 0;
     width: 100%;
+    z-index: 2;
 }
 
 .scroll {
   display: inline-flex;
+  gap: 16px;
   animation: scroll-left 35s linear infinite;
+}
+
+.info-about {
+    position: absolute;
+    bottom: 40px;
+    z-index: 0;
 }
 
 @keyframes scroll-left {
