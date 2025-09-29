@@ -33,7 +33,7 @@ html, body {
     font-family: "DM Mono", sans-serif;
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1.4;
     counter-reset: section;
     overflow: hidden;
     cursor: none !important;
@@ -377,6 +377,7 @@ main {
     background: #8a8a8a;
 }
 .project {
+    position: relative;
     margin-bottom: 24px;
     padding-bottom: 16px;
     border-bottom: 1px solid #d3d3d359;
@@ -390,7 +391,7 @@ main {
 }
 .project .description {
     margin-top: 12px;
-    font-size: 16px;
+    font-size: 15px;
     color: #e0e0e0c0;
     line-height: 150%;
     font-weight: 300;
@@ -399,6 +400,7 @@ main {
 .project-header {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 4px;
     margin-inline: -4px;
 }
@@ -504,7 +506,7 @@ h3 span {
 */
 .project-title span {
     color: #e0e0e0c0;
-    font-size: 16px;
+    font-size: 15px;
 }
 .show {
     visibility: visible;
@@ -751,6 +753,12 @@ body.lock {
     -webkit-line-clamp: 3;
     overflow: hidden;
 }
+.project-selector {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #e0e0e0c0;
+}
 @media screen and (max-width: 1280px){
     .star {
         width: 150px;
@@ -928,10 +936,45 @@ body.lock {
   animation: scroll-left 35s linear infinite;
 }
 
+.scroll:hover {
+}
+
 .info-about {
     position: absolute;
     bottom: 40px;
     z-index: 0;
+}
+
+.client-logo {
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.client-logo.icon-soylent-full-color {
+    height: 48px;
+}
+.client-logo path, .client-logo polygon {
+    fill: #e0e0e0c0;
+}
+
+.project:hover .client-logo {
+    opacity: 1;
+    top: 7px;
+    transform: rotate(4deg);
+    right: 10px;
+}
+
+.project:hover .client-logo.icon-soylent-full-color  {
+    top: -3px;
+    transform: rotate(4deg);
+    right: 5px;
+}
+
+.project:hover .client-logo path, .project:hover .client-logo polygon {
+    fill: var(--color-yellow);
 }
 
 @keyframes scroll-left {
