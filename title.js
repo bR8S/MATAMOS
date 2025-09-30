@@ -3,5 +3,5 @@ window.addEventListener('blur', () => {
 });
 
 window.addEventListener('focus', () => {
-    document.title = `MATAMOS  ⊂(◉‿◉)つ`
+    document.title = `MATAMOS x GUILLERMO MATA ⊂(◉‿◉)つ`
 });

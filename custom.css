@@ -31,11 +31,12 @@
 html, body {
     color: #fff;
     font-family: "DM Mono", sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1.4;
     counter-reset: section;
     overflow: hidden;
-    cursor: none;
+    cursor: none !important;
 }
 .cursor-mb {
     position: fixed;
@@ -186,6 +187,7 @@ html, body {
     height: 100vh;
     top: 0;
     left: 0;
+    opacity: 0.3;
 }
 .overlay-line {
     background-color: #c5c5c521;
@@ -215,18 +217,13 @@ html, body {
 main {
     height: 100vh;
     width: 100%;
-    /*
-    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(227 229 117 / 45%), rgb(166 73 237 / 35%), rgb(60 91 149 / 83%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
-    background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(227 229 117 / 45%), rgb(133 89 197 / 64%), rgb(247 223 106 / 83%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
-    background-size: 180%, 100%, 40%;
- 
-    background-blend-mode: color-dodge;
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(18, 18, 18, 0.5), rgb(180 147 249 / 35%), rgba(18, 18, 18, 0.9)), linear-gradient(187deg, rgb(208 187 253 / 90%) 0%, rgba(18, 18, 18, 0.9) 65%), url(./images/noise_lt.svg);
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgb(249 233 152 / 85%), rgb(133 89 197 / 94%), rgb(249 233 152 / 93%)), linear-gradient(97deg, rgb(0 0 0 / 90%) 0%, rgba(18, 18, 18, 0.9) 5%), url(./images/noise_lt.svg);
     
     background-image: radial-gradient(ellipse farthest-corner at -40% 45%, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.94));
-    */
+
+    background-size: 180%, 100%, 40%;
     background-blend-mode: color-dodge;
     background-color: #1a1a1a;
     overflow: hidden;
@@ -255,7 +252,7 @@ main {
     gap: 10px;
     align-self: flex-end;
     width: 20%;
-    padding-bottom: 24px;
+    padding-bottom: 40px;
 }
 .star {
     position: absolute;
@@ -265,6 +262,41 @@ main {
     animation-duration: 20s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+@keyframes star-rotate {
+    0% {
+        transform: scale(1) rotate(0deg)
+    }
+    25% {
+        transform: scale(1.05) rotate(90deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg);
+    }
+    75% {
+        transform: scale(0.9) rotate(270deg);
+    }
+    100% {
+        transform: scale(1) rotate(360deg)
+    }
+}
+@keyframes star-rotate-2 {
+    0% {
+        transform: scale(1) rotate(0deg)
+    }
+    25% {
+        transform: scale(1.07) rotate(-20deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-33deg);
+    }
+    75% {
+        transform: scale(0.9) rotate(-23deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg)
+    }
 }
 @keyframes spin {
     0% {
@@ -320,6 +352,7 @@ main {
 }
 .info {
     width: 35%;
+    position: relative;
 }
 .header {
     margin-bottom: 24px;
@@ -344,6 +377,7 @@ main {
     background: #8a8a8a;
 }
 .project {
+    position: relative;
     margin-bottom: 24px;
     padding-bottom: 16px;
     border-bottom: 1px solid #d3d3d359;
@@ -356,8 +390,19 @@ main {
     transform: translateY(-20px) rotate(-2deg);
 }
 .project .description {
-    margin-top: 16px;
-    line-height: 130%;
+    margin-top: 12px;
+    font-size: 15px;
+    color: #e0e0e0c0;
+    line-height: 150%;
+    font-weight: 300;
+    position: relative;
+}
+.project-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    margin-inline: -4px;
 }
 .project-image {
     position: fixed;
@@ -369,6 +414,7 @@ main {
     object-position: left;
     background-size: cover;
     transition: all 0.25s ease-in-out;
+    z-index: 1;
 }
 .socials {
     display: flex;
@@ -382,13 +428,15 @@ main {
     width: fit-content;
 }
 .social__link:hover {
-    color: #c78ffc;
-    color: #e4e4e4;
     color: var(--color-yellow);
 }
 .detail {
     opacity: 0;
     height: 0;
+}
+.project-header svg {
+    width: 22px;
+    height: 20px;
 }
 .project:hover {
     color: #e4e4e4;
@@ -397,8 +445,9 @@ main {
 .project:hover > .project-image {
     transform: translateX(-100.1%);
 }
-.project:hover h3 {
+.project:hover h3, .project:hover .description {
     color: var(--color-yellow);
+    transition: color 0.2s ease-in-out;
 }
 .project:hover .detail {
     color: var(--color-yellow);
@@ -406,20 +455,59 @@ main {
     height: auto;
     transform: translateY(0px) rotate(0deg);
     transition: all 0.2s ease-in;
+    padding-inline: 4px;
 }
 .project:hover .detail svg path {
-    fill: #dadada;
     fill: var(--color-yellow);
 }
+.banner .scroll svg {
+    position: relative;
+    animation-name: star-rotate-2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.banner .scroll span {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.banner .scroll .cls-1 {
+    fill: #1f1f1f;
+}
+.project .project-header .cls-1 {
+    fill: #fff;
+}
+.project:hover .project-header .cls-1 {
+    fill: var(--color-yellow);
+}
+.project:hover .project-title span {
+    color: var(--color-yellow);
+}
+.project-header svg {
+    transform: rotate(0deg);
+    width: 24px;
+    height: 22px;
+}
+.project:hover .project-header svg {
+    animation-name: star-rotate;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
 h3 {
-    font-size: 16px;
+    font-size: 18px;
 }
 h3 span {
     font-weight: 400;
 }
 .project-title::before {
     counter-increment: section;
-    content: "00" counter(section) " ";
+    content: "0" counter(section) " ";
+}
+.project-title span {
+    color: #e0e0e0c0;
+    font-size: 15px;
 }
 .show {
     visibility: visible;
@@ -458,9 +546,12 @@ h3 span {
     display: none;
     position: relative;
     padding: 32px;
+    z-index: 5;
 }
 .preview.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 .preview-image-wrapper {
     overflow: hidden;
@@ -471,7 +562,7 @@ h3 span {
     width: 100%;
     height: 100%;
     aspect-ratio: 2;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .preview-image__overlay {
@@ -488,7 +579,6 @@ h3 span {
     transform: translate(0%, 110%);
 }
 .preview-content {
-    margin-top: 24px;
     display: flex;
     flex-direction: row;
     gap: 32px;
@@ -513,11 +603,11 @@ h3 span {
 .preview-services {
     width: 20%;
 }
-.preview-outline {
-    width: 30%;
-}
 .preview-client {
-    width: 50%;
+    width: 40%;
+}
+.preview-outline {
+    width: 40%;
 }
 
 .preview-link {
@@ -528,10 +618,10 @@ h3 span {
 
 .preview-image__text {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 48px;
-    line-height: 48px;
+    bottom: 0px;
+    left: 4px;
+    font-size: 64px;
+    line-height: 0.9;
     font-weight: 500;
     font-family: "DM Mono", sans-serif;
     opacity: 0;
@@ -567,6 +657,15 @@ h3 span {
     margin-top: 48px;
 }
 
+.preview-paragraph {
+    color: #e0e0e0c0;
+}
+.preview-paragraph a {
+    color: #fff;
+}
+.preview-paragraph a:hover {
+    color: var(--color-yellow);
+}
 .preview-services .preview-paragraph {
     opacity: 0;
     transform: translate(0%, -10px);
@@ -658,6 +757,18 @@ body.lock {
     position: relative;
     width: 100%;
     height: auto;
+}
+.project .description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.project-selector {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #e0e0e0c0;
 }
 @media screen and (max-width: 1280px){
     .star {
@@ -813,4 +924,86 @@ body.lock {
 
 .bg-cursor.show {
     opacity: 0.4;
+}
+
+.banner {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #d1d1d1;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    padding: 4px 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.scroll {
+  display: inline-flex;
+  gap: 16px;
+  animation: scroll-left 35s linear infinite;
+}
+
+.scroll:hover {
+}
+
+.info-about {
+    position: absolute;
+    bottom: 40px;
+    z-index: 0;
+}
+
+.client-logo {
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.client-logo.icon-soylent-full-color {
+    height: 40px;
+}
+.client-logo.gamersupps-logo {
+    height: 40px;
+}
+.client-logo.macys-logo {
+    height: 35px;
+}
+.client-logo.ptreyes-logo {
+    height: 40px;
+}
+.client-logo.yesyoucan-logo {
+    height: 43px;
+}
+.client-logo path, .client-logo polygon {
+    fill: #e0e0e0c0;
+}
+
+.project:hover .client-logo {
+    opacity: 1;
+    top: 7px;
+    transform: rotate(3deg);
+    right: 10px;
+}
+
+.project:hover .client-logo.icon-soylent-full-color  {
+    top: 3px;
+    right: 5px;
+}
+
+.project:hover .client-logo path, .project:hover .client-logo polygon {
+    fill: var(--color-yellow);
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
