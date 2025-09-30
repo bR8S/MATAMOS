@@ -770,6 +770,54 @@ body.lock {
     letter-spacing: 0.5px;
     color: #e0e0e0c0;
 }
+.client-logo {
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.client-logo.icon-soylent-full-color {
+    height: 40px;
+}
+.client-logo.gamersupps-logo {
+    height: 40px;
+}
+.client-logo.macys-logo {
+    height: 35px;
+}
+.client-logo.ptreyes-logo {
+    height: 40px;
+}
+.client-logo.yesyoucan-logo {
+    height: 43px;
+}
+.client-logo path, .client-logo polygon {
+    fill: #e0e0e0c0;
+}
+
+.project:hover .client-logo {
+    opacity: 1;
+    top: 7px;
+    transform: rotate(3deg);
+    right: 10px;
+}
+
+.project:hover .client-logo.icon-soylent-full-color  {
+    top: 3px;
+    right: 5px;
+}
+
+.project:hover .client-logo path, .project:hover .client-logo polygon {
+    fill: var(--color-yellow);
+}
+
+@media screen and (max-width: 1500px){
+    .client-logo {
+        display: none;
+    }
+}
 @media screen and (max-width: 1280px){
     .star {
         width: 150px;
@@ -781,6 +829,9 @@ body.lock {
     }
 }
 @media screen and (max-width: 1024px){
+    .client-logo {
+        display: block;
+    }
     html, body, main {
         overflow: visible;
         cursor: auto;
@@ -870,6 +921,9 @@ body.lock {
     .preview-description {
         margin-top: 32px;
     }
+    .client-logo {
+        display: block;
+    }
 }
 @media screen and (max-width: 768px){ 
     .preview-image__text {
@@ -954,49 +1008,6 @@ body.lock {
     position: absolute;
     bottom: 40px;
     z-index: 0;
-}
-
-.client-logo {
-    height: 30px;
-    position: absolute;
-    right: 10px;
-    top: 40px;
-    opacity: 0;
-    transition: all 0.2s ease-in-out;
-}
-.client-logo.icon-soylent-full-color {
-    height: 40px;
-}
-.client-logo.gamersupps-logo {
-    height: 40px;
-}
-.client-logo.macys-logo {
-    height: 35px;
-}
-.client-logo.ptreyes-logo {
-    height: 40px;
-}
-.client-logo.yesyoucan-logo {
-    height: 43px;
-}
-.client-logo path, .client-logo polygon {
-    fill: #e0e0e0c0;
-}
-
-.project:hover .client-logo {
-    opacity: 1;
-    top: 7px;
-    transform: rotate(3deg);
-    right: 10px;
-}
-
-.project:hover .client-logo.icon-soylent-full-color  {
-    top: 3px;
-    right: 5px;
-}
-
-.project:hover .client-logo path, .project:hover .client-logo polygon {
-    fill: var(--color-yellow);
 }
 
 @keyframes scroll-left {
