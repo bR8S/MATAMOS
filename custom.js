@@ -5,6 +5,7 @@ const projects = document.querySelectorAll('.project')
 const previews = document.querySelectorAll('.preview')
 const socials = document.querySelectorAll('.social__link')
 const projectLinks = document.querySelectorAll('.preview-link')
+const projectLinksMobile = document.querySelectorAll('.preview-link-mobile')
 const detailsOverlay = document.querySelector('.details-overlay')
 const details = document.querySelector('.details')
 
@@ -113,6 +114,7 @@ function openDetails(event, index) {
 
     const previewText = previews[index]?.querySelector('.preview-image__text')
     const previewLink = previews[index]?.querySelectorAll('.preview-link')
+    const previewLinkMobile = previews[index]?.querySelectorAll('.preview-link-mobile')
 
     detailsOverlay?.classList.add('active')
     details?.classList.add('active')
@@ -141,6 +143,10 @@ function openDetails(event, index) {
         link.classList.add('active')
     })
 
+    previewLinkMobile?.forEach(link => {
+        link.classList.add('active')
+    })
+
     previewText.classList.add('active')
 }
 
@@ -158,6 +164,7 @@ function closeDetails(event){
     const previewDescriptionHeader = document?.querySelectorAll('.preview-description .preview-header')
     const previewDescriptionContent = document?.querySelectorAll('.preview-description .preview-description-content')
     const previewLink = document?.querySelectorAll('.preview-link')
+    const previewLinkMobile = document?.querySelectorAll('.preview-link-mobile')
     const previewText = document?.querySelectorAll('.preview-image__text')
     
     detailsOverlay?.classList.remove('active')
@@ -220,6 +227,10 @@ function closeDetails(event){
     })
 
     previewLink?.forEach(link => {
+        link.classList.remove('active')
+    })
+
+    previewLinkMobile?.forEach(link => {
         link.classList.remove('active')
     })
 

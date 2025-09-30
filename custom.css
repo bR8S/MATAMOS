@@ -614,7 +614,7 @@ h3 span {
     transform: translate(0%, -20px);
     opacity: 0;
     transition: opacity 0.5s ease-in-out 0.8s, transform 0.5s ease-in-out 0.8s, color 0.15s ease-in-out 0s;
-}
+} 
 
 .preview-image__text {
     position: absolute;
@@ -849,13 +849,16 @@ body.lock {
     .content {
         gap: 20px;
         flex-direction: column;
-        padding: 0 20px 32px;
+        padding: 0 20px 48px;
     }
     .about, .work, .contact {
         width: 100%;
     }
+    .info-about .about-text {
+        display: none;
+    }
     h3 {
-        font-size: 14px;
+        font-size: 16px;
     }
     .projects {
         overflow: visible;
@@ -878,6 +881,11 @@ body.lock {
     }
     .project .description {
         margin-top: 10px;
+        font-size: 14px;
+    }
+    .project-title span {
+        font-size: 14px;
+        display: none;
     }
     .header-logo {
         position: relative;
@@ -912,11 +920,18 @@ body.lock {
         font-size: 14px;
         position: absolute;
         right: 0px;
-        top: 0px;
+        top: 0;
         font-weight: bold;
         color: #fff;
         font-size: 14px;
         cursor: none;
+        transform: translate(0%, -20px);
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out 0.8s, transform 0.5s ease-in-out 0.8s, color 0.15s ease-in-out 0s;
+    }
+    .preview-link-mobile.active {
+        opacity: 1;
+        transform: translate(0%, 0%);
     }
     .preview-description {
         margin-top: 32px;
@@ -960,6 +975,12 @@ body.lock {
     }
 }
 
+@media screen and (max-width: 650px){
+    .client-logo {
+        display: none;
+    }
+}
+
 .bg-cursor {
     display: none;
     position: absolute;
@@ -999,9 +1020,6 @@ body.lock {
   display: inline-flex;
   gap: 16px;
   animation: scroll-left 35s linear infinite;
-}
-
-.scroll:hover {
 }
 
 .info-about {
