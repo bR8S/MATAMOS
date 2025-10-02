@@ -1028,9 +1028,46 @@ body.lock {
     z-index: 0;
 }
 
-
 .about-text {
     font-size: 16px;
+}
+
+.project-selectors {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #d3d3d359;
+}
+.header {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+.projects {
+    margin-top: 24px;
+    display: none;
+}
+.project-selector {
+    padding: 10px 24px 10px 24px;
+    border: 1px solid #d3d3d359;
+    transition: all 0.15s ease-in-out;
+    background-color: transparent;
+}
+.project-selector-work {
+    border-left: 1px solid #d3d3d359;
+}
+.project-selector:hover {
+    background-color: #d3d3d322;
+    color: #fff;
+}
+.project-selector.active {
+    background-color: #d3d3d325;
+    filter: blur(4);
+    background-color: #EEED5C25 !important;
+    color: var(--color-yellow);
+    filter: blur(4);
+    border: 1px solid #EEED5C;
+}  
+.projects.active {
+    display: flex;
 }
 
 @keyframes scroll-left {
