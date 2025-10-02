@@ -1028,6 +1028,11 @@ body.lock {
     z-index: 0;
 }
 
+
+.about-text {
+    font-size: 16px;
+}
+
 @keyframes scroll-left {
   from {
     transform: translateX(0);
