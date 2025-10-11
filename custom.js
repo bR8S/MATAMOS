@@ -94,7 +94,6 @@ function updateCursorClose(event) {
 }
 
 function openDetails(event, index) {
-    console.log(index)
     const previewImageOverlay = previews[index]?.querySelector('.preview-image__overlay')
 
     const previewServices = previews[index]?.querySelector('.preview-services')
@@ -239,8 +238,6 @@ function closeDetails(event){
     })
 }
 
-console.log(previews)
-
 // handles updating custom cursor position
 window.addEventListener('mousemove', event => updateCursorPosition(event))
 
@@ -269,6 +266,13 @@ detailsOverlay.addEventListener('mouseleave', event => updateCursorClose(event))
 detailsOverlay.addEventListener('click', event => {
     closeDetails(event) 
     updateCursorClose(event)
+})
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' || event.key === 'Backspace') {
+        closeDetails(event)
+        updateCursorClose(event)
+    }
 })
 
 cursorMb.addEventListener('click', event => closeDetails(event))
