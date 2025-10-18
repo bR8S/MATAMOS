@@ -1,27 +1,6 @@
 :root {
     --color-yellow: #EEED5C;
     --color-dark-grey: #4d4d4d;
-}
-
-.dm-mono-light {
-    font-family: "DM Mono", monospace;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.dm-mono-regular {
-    font-family: "DM Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.dm-mono-medium {
-    font-family: "DM Mono", monospace;
-    font-weight: 500;
-    font-style: normal;
-}
-
-:root {
     --header_ratio: 1669 / 339;
 }
 * {
@@ -634,7 +613,7 @@ h3 span {
     font-size: 64px;
     line-height: 0.9;
     font-weight: 500;
-    font-family: "DM Mono", sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     opacity: 0;
     transform: translate(0, 60px);
     transition: all 0.35s ease-in-out 0.5s;
