@@ -95,7 +95,6 @@ function updateCursorClose(event) {
 
 function openDetails(event, index) {
     const previewImageOverlay = previews[index]?.querySelector('.preview-image__overlay')
-
     const previewServices = previews[index]?.querySelector('.preview-services')
     const previewOutline = previews[index]?.querySelector('.preview-outline')
     const previewClient = previews[index]?.querySelector('.preview-client')
@@ -104,12 +103,10 @@ function openDetails(event, index) {
     const previewServicesHeader = previews[index]?.querySelector('.preview-services .preview-header')
     const previewOutlineHeader = previews[index]?.querySelector('.preview-outline .preview-header')
     const previewClientHeader = previews[index]?.querySelector('.preview-client .preview-header')
-    const previewDescriptionHeader = previews[index]?.querySelector('.preview-description .preview-header')
 
     const previewServicesParagraph = previews[index]?.querySelector('.preview-services .preview-paragraph')
     const previewOutlineParagraph = previews[index]?.querySelector('.preview-outline .preview-paragraph')
     const previewClientParagraph = previews[index]?.querySelector('.preview-client .preview-paragraph')
-    const previewDescriptionContent = previews[index]?.querySelector('.preview-description .preview-description-content')
 
     const previewText = previews[index]?.querySelector('.preview-image__text')
     const previewLink = previews[index]?.querySelectorAll('.preview-link')
@@ -123,6 +120,18 @@ function openDetails(event, index) {
     previewImageOverlay?.offsetWidth // Forces reflow
     previewImageOverlay?.classList.add('active')
 
+    let previewServiceParagraphLines = previewServicesParagraph?.querySelectorAll('span') || []
+    let previewOutlineParagraphLines = previewOutlineParagraph?.querySelectorAll('.line') || []
+    let previewClientParagraphLines = previewClientParagraph?.querySelectorAll('.line') || []
+     
+    if (!previewOutlineParagraphLines?.length && !previewClientParagraphLines?.length) {
+        splitParagraphText(previewOutlineParagraph)
+        splitParagraphText(previewClientParagraph)
+    }   
+
+    previewOutlineParagraphLines = previewOutlineParagraph?.querySelectorAll('.line')
+    previewClientParagraphLines = previewClientParagraph?.querySelectorAll('.line')
+    
     previewServices?.classList.add('active')
     previewOutline?.classList.add('active')
     previewClient?.classList.add('active')
@@ -131,12 +140,10 @@ function openDetails(event, index) {
     previewServicesHeader?.classList.add('active')
     previewOutlineHeader?.classList.add('active')
     previewClientHeader?.classList.add('active')
-    previewDescriptionHeader?.classList.add('active')
 
-    previewServicesParagraph?.classList.add('active')
-    previewOutlineParagraph?.classList.add('active')
-    previewClientParagraph?.classList.add('active')
-    previewDescriptionContent?.classList.add('active')
+    gsap.to(previewServiceParagraphLines, {duration: 0.325, top: 0, stagger: 0.125, opacity: 1, ease: "power2.out", delay: 0.9})
+    gsap.to(previewOutlineParagraphLines, {duration: 0.325, top: 0, stagger: 0.125, opacity: 1, ease: "power2.out", delay: 0.9})
+    gsap.to(previewClientParagraphLines, {duration: 0.325, top: 0, stagger: 0.125, opacity: 1, ease: "power2.out", delay: 0.9})
 
     previewLink?.forEach(link => {
         link.classList.add('active')
@@ -160,11 +167,31 @@ function closeDetails(event){
     const previewClient = document?.querySelectorAll('.preview-client')
     const previewClientHeader = document?.querySelectorAll('.preview-client .preview-header')
     const previewClientParagraph = document?.querySelectorAll('.preview-client .preview-paragraph')
-    const previewDescriptionHeader = document?.querySelectorAll('.preview-description .preview-header')
-    const previewDescriptionContent = document?.querySelectorAll('.preview-description .preview-description-content')
     const previewLink = document?.querySelectorAll('.preview-link')
     const previewLinkMobile = document?.querySelectorAll('.preview-link-mobile')
     const previewText = document?.querySelectorAll('.preview-image__text')
+
+    let previewServiceParagraphLines = []
+
+    previewServicesParagraph?.forEach(paragraph => {
+       previewServiceParagraphLines?.push(paragraph?.querySelectorAll('span'))
+    })
+
+    let previewOutlineParagraphLines = []
+
+    previewOutlineParagraph?.forEach(paragraph => {
+       previewOutlineParagraphLines?.push(paragraph?.querySelectorAll('.line'))
+    })
+
+    let previewClientParagraphLines = []
+
+    previewClientParagraph?.forEach(paragraph => {
+       previewClientParagraphLines?.push(paragraph?.querySelectorAll('.line'))
+    })
+
+    previewParagraphLinesOpacity(previewServiceParagraphLines)
+    previewParagraphLinesOpacity(previewClientParagraphLines)
+    previewParagraphLinesOpacity(previewOutlineParagraphLines)
     
     detailsOverlay?.classList.remove('active')
     details?.classList.remove('active')
@@ -197,10 +224,6 @@ function closeDetails(event){
         header?.classList.remove('active')
     })
 
-    previewDescriptionHeader?.forEach(header => {
-        header?.classList.remove('active')
-    })
-
     previewClientHeader?.forEach(header => {
         header?.classList.remove('active')
     })
@@ -217,14 +240,6 @@ function closeDetails(event){
         paragraph?.classList.remove('active')
     })
 
-    previewDescriptionHeader?.forEach(header => {
-        header?.classList.remove('active')
-    })
-
-    previewDescriptionContent?.forEach(content => {
-        content?.classList.remove('active')
-    })
-
     previewLink?.forEach(link => {
         link.classList.remove('active')
     })
@@ -236,6 +251,25 @@ function closeDetails(event){
     previewText?.forEach(text => {
         text?.classList.remove('active')
     })
+}
+
+function previewParagraphLinesOpacity(previewParagraphLines){
+    previewParagraphLines?.forEach(line => {
+            line.forEach( subline => {
+                if(subline?.style){
+                    subline.style.opacity = '0'
+                }
+            })
+    })
+}
+
+function splitParagraphText(paragraph){
+    gsap.registerPlugin(SplitText) 
+    const split = SplitText.create(paragraph, {
+        type: "lines",
+        linesClass: "line++"
+    })
+    split.lines
 }
 
 // handles updating custom cursor position
@@ -250,6 +284,12 @@ window.addEventListener('mousemove', (event) => {
     cursorBg.classList.remove('show')
   }, delay);
 });
+
+document.addEventListener("DOMContentLoaded", () => { 
+    //splitParagraphText(clientParagraphs)
+    //splitParagraphText(outlineParagraphs)
+    //splitParagraphText(serviceParagraphs)
+})
 
 projects.forEach(project => project.addEventListener('mousemove', event => updateCursorHover(event)))
 projects.forEach(project => project.addEventListener('mouseleave', event => updateCursorHover(event)))
