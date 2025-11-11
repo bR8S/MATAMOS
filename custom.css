@@ -599,6 +599,9 @@ h3 span {
 .preview-outline {
     width: 40%;
 }
+.preview-personal .preview-outline {
+    width: 60%;
+}
 
 .preview-link {
     transform: translate(0%, -20px);

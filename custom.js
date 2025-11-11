@@ -141,9 +141,9 @@ function openDetails(event, index) {
     previewOutlineHeader?.classList.add('active')
     previewClientHeader?.classList.add('active')
 
-    gsap.to(previewServiceParagraphLines, {duration: 0.325, top: 0, stagger: 0.125, opacity: 1, ease: "power2.out", delay: 0.9})
-    gsap.to(previewOutlineParagraphLines, {duration: 0.325, top: 0, stagger: 0.125, opacity: 1, ease: "power2.out", delay: 0.9})
-    gsap.to(previewClientParagraphLines, {duration: 0.325, top: 0, stagger: 0.125, opacity: 1, ease: "power2.out", delay: 0.9})
+    gsap.to(previewServiceParagraphLines, {duration: 0.325, top: 0, stagger: 0.05, opacity: 1, ease: "power2.out", delay: 0.9})
+    gsap.to(previewOutlineParagraphLines, {duration: 0.325, top: 0, stagger: 0.05, opacity: 1, ease: "power2.out", delay: 0.9})
+    gsap.to(previewClientParagraphLines, {duration: 0.325, top: 0, stagger: 0.05, opacity: 1, ease: "power2.out", delay: 0.9})
 
     previewLink?.forEach(link => {
         link.classList.add('active')

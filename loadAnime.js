@@ -50,9 +50,9 @@
     gsap.to(banner, {duration: 0.5, top: 'calc(100% - 56px)', opacity: 1, ease: "power2.out", delay: 3.5}) 
     */
 
-    gsap.to(socialsText, {duration: 0.7, top: 0, stagger: 0.15, opacity: 1, ease: "power2.out", delay: 0.5 })
-    gsap.to(leftHandText, {duration: 0.7, top: 0, stagger: 0.15, opacity: 1, ease: "power2.out", delay: 0.5 })
-    gsap.to(bioLines, {duration: 0.7, top: 0, stagger: 0.15, opacity: 1, ease: "power2.out", delay: 0.5 })
+    gsap.to(socialsText, {duration: 0.7, top: 0, stagger: 0.1, opacity: 1, ease: "power2.out", delay: 0.5 })
+    gsap.to(leftHandText, {duration: 0.7, top: 0, stagger: 0.1, opacity: 1, ease: "power2.out", delay: 0.5 })
+    gsap.to(bioLines, {duration: 0.7, top: 0, stagger: 0.1, opacity: 1, ease: "power2.out", delay: 0.5 })
     gsap.to(bioText, {duration: 0.01, top: 0, opacity: 1, ease: "power2.out", delay: 0.5 })
     gsap.to(banner, {duration: 0.5, top: 'calc(100% - 56px)', opacity: 1, ease: "power2.out", delay: 1.25 }) 
  });
