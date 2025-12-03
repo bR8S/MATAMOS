@@ -1,14 +1,22 @@
 :root {
     --color-yellow: #EEED5C;
+    --color-white: #ffffff;
+    --color-white-body: #e0e0e0c0;
     --color-dark-grey: #4d4d4d;
     --header_ratio: 1669 / 339;
+    --color-background: rgb(26, 26, 26);
+    /*
+    --color-white-body: #2f56ffc0;
+    --color-white: #2f56ff;
+    --color-background: #e5e5e5;
+    */
 }
 * {
     padding: 0;
     margin: 0;
 }
 html, body {
-    color: #fff;
+    color: var(--color-white);
     font-family: "DM Mono", sans-serif;
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
@@ -198,7 +206,7 @@ main {
     width: 100%;
     background-size: 180%, 100%, 40%;
     background-blend-mode: color-dodge;
-    background-color: rgb(26, 26, 26);
+    background-color: var(--color-background);
     overflow: hidden;
 }
 .header-logo {
@@ -355,7 +363,7 @@ main {
     width: 4px;
 }
 .projects::-webkit-scrollbar-track {
-    background: #fff;
+    background: var(--color-white);
 }
 .projects::-webkit-scrollbar-thumb {
     background: #8a8a8a;
@@ -366,7 +374,7 @@ main {
     padding-bottom: 16px;
     border-bottom: 1px solid #d3d3d359;
     text-decoration: none;
-    color: #fff;
+    color: var(--color-white);
     opacity: 0;
 }
 .project .detail {
@@ -377,7 +385,7 @@ main {
 .project .description {
     margin-top: 12px;
     font-size: 15px;
-    color: #e0e0e0c0;
+    color: var(--color-white-body);
     line-height: 150%;
     font-weight: 300;
     position: relative;
@@ -407,7 +415,7 @@ main {
     gap: 8px;
 }
 .social__link {
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
     cursor: none;
     width: fit-content;
@@ -463,7 +471,7 @@ main {
     fill: #1f1f1f;
 }
 .project .project-header .cls-1 {
-    fill: #fff;
+    fill: var(--color-white);
 }
 .project:hover .project-header .cls-1 {
     fill: var(--color-yellow);
@@ -493,7 +501,7 @@ h3 span {
     content: "0" counter(section) " ";
 }
 .project-title span {
-    color: #e0e0e0c0;
+    color: var(--color-white-body);
     font-size: 15px;
 }
 .show {
@@ -577,7 +585,7 @@ h3 span {
 }
 .preview-link {
     font-weight: bold;
-    color: #fff;
+    color: var(--color-white);
     font-size: 16px;
     margin-bottom: 0;
     cursor: none;
@@ -647,10 +655,10 @@ h3 span {
 }
 
 .preview-paragraph {
-    color: #e0e0e0c0;
+    color: var(--color-white-body);
 }
 .preview-paragraph a {
-    color: #fff;
+    color: var(--color-white);
 }
 .preview-paragraph a:hover {
     color: var(--color-yellow);
@@ -737,7 +745,7 @@ body.lock {
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 0.5px;
-    color: #e0e0e0c0;
+    color: var(--color-white-body);
 }
 .client-logo {
     height: 30px;
@@ -763,7 +771,7 @@ body.lock {
     height: 43px;
 }
 .client-logo path, .client-logo polygon {
-    fill: #e0e0e0c0;
+    color: var(--color-white-body);
 }
 
 .project:hover .client-logo {
@@ -894,7 +902,7 @@ body.lock {
         right: 0px;
         top: 0;
         font-weight: bold;
-        color: #fff;
+        color: var(--color-white);
         font-size: 14px;
         cursor: none;
         transform: translate(0%, -20px);
@@ -1042,7 +1050,7 @@ body.lock {
 }
 .project-selector:hover {
     background-color: #d3d3d322;
-    color: #fff;
+    color: var(--color-white);
 }
 .project-selector.active {
     background-color: #d3d3d325;
